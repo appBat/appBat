@@ -1,0 +1,53 @@
+<!--
+  Generated template for the Efectividad page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>efectividad</ion-title>
+    <ion-buttons end>
+      <button (click)="mostrarVentanaConfirmacion()" ion-button icon-only color="royal">
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+ <ion-searchbar   [(ngModel)]="busca" ></ion-searchbar>
+
+        <table border="1" style="width: 100%">
+          <tr>
+            <th  *ngIf="tipoUsuario == 'VENDEDOR'">Gerente</th>
+            <th>Ruta</th>
+            <th>Marca</th>
+            <th>O.visitas</th>
+            <th>O.pedidos</th>
+            <th>Visitas</th>
+            <th>Pedidos</th>
+            <th>Efectividad visitas</th>
+            <th>Efectividad pedidos</th>
+          </tr>
+          <tr  *ngFor='let item of datosEfectividad | myfilter   :{marca: busca}' >
+             <td  *ngIf="tipoUsuario == 'VENDEDOR'"> {{ item.gerente }}</td>
+             <td> {{ item.ruta}}</td>
+             <td> {{ item.marca}}</td>
+             <td> {{ item.objetivoVisita}}</td>
+             <td> {{ item.objetivoPedido}}</td>
+             <td> {{ item.visitas}}</td>
+             <td> {{ item.pedidos}}</td>
+             <td> {{ item.efectividadVisitas}}</td>
+             <td> {{ item.efectividadPedidos}}</td>
+
+          </tr>
+        </table>     
+  
+
+</ion-content>
