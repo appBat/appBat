@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>efectividad</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Indicador de efectividad</ion-title>
     <ion-buttons end>
       <button (click)="mostrarVentanaConfirmacion()" ion-button icon-only color="royal">
         <ion-icon name="md-log-out"></ion-icon>
@@ -18,18 +18,18 @@
 </ion-header>
 
 
+<ion-content padding class="fondoGlobal" >
 
-<ion-content padding>
+ <ion-searchbar  placeholder="Busqueda por marca" [(ngModel)]="busca" color="primary"></ion-searchbar>
 
- <ion-searchbar   [(ngModel)]="busca" ></ion-searchbar>
-
+<div  style="overflow-x:auto;">
         <table border="1" style="width: 100%">
           <tr>
             <th  *ngIf="tipoUsuario == 'VENDEDOR'">Gerente</th>
             <th>Ruta</th>
             <th>Marca</th>
-            <th>O.visitas</th>
-            <th>O.pedidos</th>
+            <th>Objetivo visitas</th>
+            <th>Objetivo pedidos</th>
             <th>Visitas</th>
             <th>Pedidos</th>
             <th>Efectividad visitas</th>
@@ -47,7 +47,8 @@
              <td> {{ item.efectividadPedidos}}</td>
 
           </tr>
-        </table>     
+        </table> 
+        </div>    
   
 
 </ion-content>

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="dark">
-    <ion-title>Indicadores ventas</ion-title>
+    <ion-title>Indicador ventas</ion-title>
     <ion-buttons end>
       <button (click)="mostrarVentanaConfirmacion()" ion-button icon-only color="royal">
         <ion-icon name="md-log-out"></ion-icon>
@@ -21,29 +21,32 @@
 
 <ion-content padding class="fondoGlobal">
 
- <ion-list >
-       <ion-searchbar  placeholder="Busqueda por marca" [(ngModel)]="busca" ></ion-searchbar>
-       <div style="overflow-x:auto;">
+ <ion-list>
+        <ion-searchbar  placeholder="Busqueda por codigo sku" [(ngModel)]="buscaSku" ></ion-searchbar>
+       
+          <div style="overflow-x:auto;">
         <table border="1" style="width: 100%">
           <tr>
             <th  *ngIf="tipoUsuario == 'VENDEDOR'">Gerente</th>
             <th>Ruta</th>
+            <th>Fecha</th>
             <th>Marca</th>
-            <th>Objetivo ventas</th>
-            <th>Ventas Acomuladas</th>
-            <th>Efectividad Ventas</th>
+            <th>Codigo sku</th>
+            <th>Descripcion producto</th>
+            <th>ventas Stick</th>
           </tr>
-          <tr  *ngFor='let item of datosVentasMarca | myfilter   :{marca: busca}' >
-             <td  *ngIf="tipoUsuario == 'VENDEDOR'"> {{ item.gerente }}</td>
+          <tr  *ngFor='let item of datosVentasSku | myfilter : {codigoSku: buscaSku}' >
+             <td  *ngIf="tipoUsuario == 'VENDEDOR'" > {{ item.gerente }}</td>
              <td> {{ item.ruta}}</td>
+             <td> {{ item.fecha}}</td>
              <td> {{ item.marca}}</td>
-             <td> {{ item.objetivoVenta}}</td>
-             <td> {{ item.ventasAcomuladas}}</td>
-             <td> {{ item.efectividadVentas}}</td>
+             <td> {{ item.codigoSku}}</td>
+             <td> {{ item.descripcion}}</td>
+             <td> {{ item.ventas}}</td>
           </tr>
         </table> 
         </div>    
-   </ion-list>
+    </ion-list>
 
 
 <!--

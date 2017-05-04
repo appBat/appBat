@@ -8,6 +8,10 @@ import { HomePage } from '../pages/home/home';
 import { Ventas } from '../pages/ventas/ventas';
 import { Marcas } from '../pages/marcas/marcas';
 import { Login } from '../pages/login/login';
+import { MenuPrincipal } from '../pages/menu-principal/menu-principal';
+import { MenuVolumenVenta } from '../pages/menu-volumen-venta/menu-volumen-venta';
+import { VolumenVentaSku } from '../pages/volumen-venta-sku/volumen-venta-sku';
+import { AcercaDe} from '../pages/acerca-de/acerca-de';
 import { Efectividad } from '../pages/efectividad/efectividad';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -39,11 +43,15 @@ export const firebaseConfig = {
     Marcas,
     Efectividad,
     Login,
-    FilterPipe
+    FilterPipe,
+    MenuPrincipal,
+    MenuVolumenVenta,
+    VolumenVentaSku,
+    AcercaDe
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp,{tabsHideOnSubPages: true}), //permite que las tabs se oculten en la ventana de login
+    IonicModule.forRoot(MyApp,{tabsHideOnSubPages: true , tabsPlacement: 'top' }), //permite que las tabs se oculten en la ventana de login
     AngularFireModule.initializeApp(firebaseConfig) ,//agrega modulo 
      IonicStorageModule.forRoot()
   ],
@@ -55,7 +63,11 @@ export const firebaseConfig = {
     Ventas,
     Marcas,
     Efectividad,
-    Login
+    Login,
+    MenuPrincipal,
+    MenuVolumenVenta,
+    VolumenVentaSku,
+    AcercaDe
   ],
   providers: [
     StatusBar,

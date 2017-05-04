@@ -8,7 +8,7 @@
 <ion-header>
 
   <ion-navbar color="dark">
-    <ion-title>marcas</ion-title>
+    <ion-title>Indicador cobertura marca</ion-title>
     <ion-buttons end>
       <button (click)="mostrarVentanaConfirmacion()" ion-button icon-only color="royal">
         <ion-icon name="md-log-out"></ion-icon>
@@ -21,8 +21,8 @@
 
 <ion-content padding class="fondoGlobal">
 
- <ion-searchbar   [(ngModel)]="busca" ></ion-searchbar>
-
+ <ion-searchbar  placeholder="Busqueda por marca" [(ngModel)]="busca" ></ion-searchbar>
+      <div style="overflow-x:auto;">
         <table border="1" style="width: 100%">
           <tr>
             <th *ngIf="tipoUsuario == 'VENDEDOR'">Gerente</th>
@@ -30,9 +30,10 @@
             <th>Marca</th>
             <th>Base clientes</th>
             <th>Clientes con compra</th>
-            <th>% cobertura</th>
+            <th>Porcentaje cobertura</th>
            
           </tr>
+          <tbody>
           <tr  *ngFor='let item of datosMarcas | myfilter   :{marca: busca}' >
              <td *ngIf="tipoUsuario == 'VENDEDOR'" > {{ item.gerente }}</td>
              <td> {{ item.ruta}}</td>
@@ -43,7 +44,9 @@
             
 
           </tr>
-        </table>     
+          </tbody>
+        </table> 
+        </div>    
   
 
 </ion-content>
